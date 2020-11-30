@@ -1,25 +1,9 @@
-let quizzes = require('./quizzes.json');
+const quizzesDao = require('../daos/quizzes-dao');
 
-const findAllQuizzes = () => quizzes;
-
-const findQuizById = (qid) => quizzes.find((q) => q._id === qid);
-
-const deleteQuiz = (qid) =>
-  (quizzes = quizzes.filter((quiz) => quiz._id !== qid));
-
-const createQuiz = () => {
-  const newQuiz = { _id: new Date().getTime() + '', titel: 'New Quiz' };
-  quizzes.push(newQuiz);
-  return newQuiz;
-};
-
-const updateQuiz = (qid, newQuiz) => {
-  quizzes;
-};
+findAllQuizzes = () => quizzesDao.findAllQuizzes();
+findQuizById = (qzid) => quizzesDao.findQuizById(qzid);
 
 module.exports = {
-  findAllQuizzes: findAllQuizzes,
-  findQuizById: findQuizById,
-  deleteQuiz,
-  createQuiz,
+  findAllQuizzes,
+  findQuizById,
 };
